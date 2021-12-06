@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backend: 'https://goldenfork-backend.herokuapp.com/api/orden',
 };
