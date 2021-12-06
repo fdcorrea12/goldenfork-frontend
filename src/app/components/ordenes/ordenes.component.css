@@ -1,0 +1,21 @@
+.container {
+    position: relative;
+}
+
+.card {
+    margin-left: 0px;
+    position: right;
+    width: 103%;
+}
+
+
+/*.table {
+  margin-left: 400px;
+  margin-right: 80px;
+  position: right;
+  width: 45%;
+}
+.row-table {
+  margin-left: 400px;
+  position: top right;
+}*/

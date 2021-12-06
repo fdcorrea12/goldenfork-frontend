@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="card">
+        <div class="row g-2">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form #ordenForm="ngForm" (ngSubmit)="addOrden(ordenForm)">
+
+                            <div class="input-field col sm 5">
+                                <input type="text" name="name" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.name" placeholder="Ingresa tu nombre">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="lastName" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.lastName" placeholder="Ingresa tu apellido">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="number" name="telephone" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.telephone" placeholder="Teléfono">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="email" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.email" placeholder="Email">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="entry" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.entry" placeholder="Entrada">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="number" name="canEntry" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.canEntry" placeholder="Número de entradas">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="mainCourse" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.mainCourse" placeholder="Plato fuerte">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="number" name="canMainCourse" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.canMainCourse" placeholder="Número de platos">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="drink" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.drink" placeholder="Bebidas">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="number" name="canDrink" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.canDrink" placeholder="Número de bebidas">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="text" name="dessert" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.dessert" placeholder="Postre">
+                            </div>
+                            <div class="input-field col s8">
+                                <input type="number" name="canDessert" #name="ngModel" [(ngModel)]="ordenService.selectedOrden.canDessert" placeholder="Cantidad de Postres">
+                            </div>
+                            <div class="card-action">
+                                <div class="input-field col s8">
+                                    <button class="btn">Save</button>
+                                    <button class="btn right" (click)="resetForm(ordenForm)">limpiar</button>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="col s7">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Nombre</th>
+                        <!-- <th>LastName</th>
+                <th>telephone</th>
+                <th>Email</th>-->
+                        <th>Entradas</th>
+                        <th>Cantidad Entradas</th>
+                        <th>Platos Fuertes</th>
+                        <th>Cantidad Platos</th>
+                        <th>Bebidas</th>
+                        <th>Cantidad Bebidas</th>
+                        <th>Postres</th>
+                        <th>Cantidad Postres</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let orden of ordenService.ordenes">
+                            <td>{{ orden.name }}</td>
+                            <!--<td>{{ orden.lastName }}</td>
+                    <td>{{ orden.telephone }}</td>
+                    <td>{{ orden.email }}</td>-->
+                            <td>{{ orden.entry }}</td>
+                            <td>{{ orden.canEntry }}</td>
+                            <td>{{ orden.mainCourse }}</td>
+                            <td>{{ orden.canMainCourse }}</td>
+                            <td>{{ orden.drink }}</td>
+                            <td>{{ orden.canDrink }}</td>
+                            <td>{{ orden.dessert }}</td>
+                            <td>{{ orden.canDessert }}</td>
+                            <td>
+                                <a (click)="editOrdenes(orden)" class="btn btn-secondary btn-sm">
+                                    <i class="material-icons">edit</i>
+                                </a>
+                                <a (click)="deleteOrdenes(orden._id, ordenForm)" class="btn btn-danger btn-sm">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
